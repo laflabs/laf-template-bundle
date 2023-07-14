@@ -6,7 +6,7 @@
     "allowUnusedLabels": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["functions/*"]
+      "@/*": ["src/*"]
     },
     "declaration": true,
     "experimentalDecorators": true,
@@ -30,6 +30,6 @@
     "alwaysStrict": true,
     "lib": ["es2015", "es6"]
   },
-  "include": ["functions/**/*", "types/**/*"],
+  "include": ["src/**/*", "types/**/*"],
   "exclude": ["tests"]
 }

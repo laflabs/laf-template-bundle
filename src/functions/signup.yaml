@@ -1,4 +1,4 @@
-name: hello
+name: signup
 methods:
   - GET
   - POST
