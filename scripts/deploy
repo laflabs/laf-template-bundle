@@ -1,0 +1,38 @@
+#! /usr/bin/env zx
+
+const { readdirSync, readFileSync, writeFileSync } = require('fs');
+const { readJsonSync } = require('fs-extra');
+const { join } = require('path');
+
+const FUNC_DIR_SOURCE = 'src/functions';
+const FUNC_DIR_DIST = 'dist/functions';
+const FUNC_DIR_TEMP = 'functions';
+
+console.log('-- 清理临时目录 --');
+await $`rm -rf functions`;
+console.log('');
+
+console.log('-- 拷贝临时目录 --');
+await $`cp -R ${FUNC_DIR_SOURCE} ${FUNC_DIR_TEMP}`;
+
+const functions = readdirSync(FUNC_DIR_DIST);
+
+for (const funcName of functions) {
+  const path = join(FUNC_DIR_DIST, funcName);
+  const content = readFileSync(path, 'utf8');
+  writeFileSync(join(FUNC_DIR_TEMP, funcName.replace(/\.mjs$/, '.ts')), content);
+}
+
+console.log('-- 上传函数到Laf --');
+await $`laf func push -f`;
+console.log('');
+
+// console.log('-- 上传依赖到Laf --');
+// const dependencies = readJsonSync('package.json').dependencies;
+// for (const [dep, version] of Object.entries(dependencies)) {
+//   await $`laf dep add -t ${version} ${dep}`;
+// }
+// console.log('');
+
+console.log('-- 清理临时目录 --');
+await $`rm -rf functions/*`;

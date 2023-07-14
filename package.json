@@ -8,6 +8,7 @@
   "scripts": {
     "build": "tsup -d dist/functions",
     "commit": "cz",
+    "deploy": "./scripts/deploy",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
     "lint:js": "eslint . --cache --ext .js,.jsx,.ts,.tsx",
@@ -85,14 +86,17 @@
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.44.0",
     "eslint-config-alloy": "^5.0.0",
+    "fs-extra": "^11.1.1",
     "husky": "^8.0.3",
+    "laf-cli": "1.0.0-beta.10",
     "lint-staged": "^13.2.3",
     "mrm": "^4.1.17",
     "prettier": "^3.0.0",
     "prettier-plugin-organize-imports": "^3.2.3",
     "prettier-plugin-packagejson": "^2.4.5",
     "tsup": "^7.1.0",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "zx": "^7.2.3"
   },
   "tsup": {
     "entry": [
