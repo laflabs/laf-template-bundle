@@ -14,7 +14,7 @@
     "importHelpers": false,
     "module": "commonjs",
     "declarationMap": true,
-    // "declarationDir": "types",
+    "declarationDir": "types",
     "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
