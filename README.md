@@ -2,6 +2,8 @@
 
 ## 使用
 
+首先请使用`laf app init [appId] -b`来生成`.app.yaml`文件.
+
 ```bash
 pnpm install # 安装依赖
 pnpm run build # 编译 src/functions 中的函数到 dist/functions
