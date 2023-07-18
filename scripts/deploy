@@ -27,12 +27,12 @@ console.log('-- 上传函数到Laf --');
 await $`laf func push -f`;
 console.log('');
 
-// console.log('-- 上传依赖到Laf --');
-// const dependencies = readJsonSync('package.json').dependencies;
-// for (const [dep, version] of Object.entries(dependencies)) {
-//   await $`laf dep add -t ${version} ${dep}`;
-// }
-// console.log('');
+console.log('-- 上传依赖到Laf --');
+const dependencies = readJsonSync('package.json').dependencies;
+for (const [dep, version] of Object.entries(dependencies)) {
+  await $`laf dep add -r -t ${version} ${dep}`;
+}
+console.log('');
 
 console.log('-- 清理临时目录 --');
 await $`rm -rf functions/*`;
